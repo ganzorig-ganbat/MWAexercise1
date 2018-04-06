@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <% if (users) { %>
+      <div class="table-responsive-lg">
+      <table class="table table-bordered table-striped table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">City</th>
+            <th scope="col">Zip code</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var user of users) {%>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td><%= user.username %></td>
+              <td><%= user.email %></td>
+              <td><%= user.address.city %></td>
+              <td><%= user.address.zipcode %></td>
+              <td><%= user.address.geo.lat %></td>
+              <td><%= user.address.geo.lng %></td>
+              <td><%= user.website %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+  </body>
+</html>
